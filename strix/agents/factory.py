@@ -645,7 +645,9 @@ def register_agent_tools(*tools: Tool) -> None:
         if tool not in _EXTRA_TOOLS and tool not in new_tools:
             new_tools.append(tool)
 
-    _ensure_unique_tool_names([*_BASE_TOOLS, *_EXTRA_TOOLS, *new_tools, finish_scan, agent_finish])
+    _ensure_unique_tool_names(
+        [*_BASE_TOOLS, *_MCP_TOOLS, *_EXTRA_TOOLS, *new_tools, finish_scan, agent_finish]
+    )
 
     for tool in new_tools:
         _EXTRA_TOOLS.append(tool)
